@@ -1,0 +1,44 @@
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+class MyThreadText extends Thread{
+	
+	public static void main(String[] args){
+		
+		MyThread ft1=new MyThread();
+		MyThread ft2=new MyThread();
+		ft1.start();
+		ft2.start();
+		
+	
+	}
+	
+	
+}
+
+class MyThread implements Runnable{
+	
+	private Thread t;
+	
+	@Override
+	
+	public void run(){
+		
+		for(int i=0;i<10;i++){
+			System.out.print(" i="+i);
+			
+			try{
+			Thread.sleep(1000);
+			}catch(Exception e){
+				
+				System.out.println("<< "+e+" >>");
+			}
+		}
+	}
+	
+	public void start(){
+		t=new Thread(this,"first");
+		t.start();
+		
+	}
+} 
